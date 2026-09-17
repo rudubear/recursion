@@ -33,17 +33,18 @@ function fibs(n) {
 }
 
 function fibsRec(n) {
+  console.log("This was printed recursively");
+
   if (n === 0) {
     return [0];
   } else if (n === 1) {
     return [0, 1];
   } else if (n >= 2) {
     let previousLine = fibsRec(n - 1);
-    let previousPreviousLine = fibsRec(n - 2);
     return [
       ...previousLine,
       previousLine[previousLine.length - 1] +
-        previousPreviousLine[previousPreviousLine.length - 1],
+        previousLine[previousLine.length - 2],
     ];
   }
 }
@@ -79,5 +80,7 @@ function sort(n, m) {
 
   return newArr;
 }
+
+fibsRec(8);
 
 export { fibs, fibsRec, mergeSort };
